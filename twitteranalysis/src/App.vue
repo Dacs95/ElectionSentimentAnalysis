@@ -21,15 +21,16 @@
   </v-content>
   <!-- FOOTER -->
         <v-footer app height="auto" class="grey darken-3" widht="auto">
-          <v-layout row wrap justify-center>
+          <v-layout row wrap justify-center class="hola">
             <v-btn
+            class="botones"
               color="white"
               flat
               v-for="link in links"
               :key="link">
               {{ link }}
             </v-btn>
-            <v-flex md12 py-3 text-md-center white--text>
+            <v-flex md12 py-1 text-md-center white--text>
               &copy;2018 — <strong>Vuetify</strong>
             </v-flex>
           </v-layout>
@@ -51,6 +52,12 @@ export default {
 
 
 <style>
+.hola{
+  height: 75px;
+}
+.botones{
+  width: 130px;
+}
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -59,6 +66,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 0px;
-
 }
 </style>
