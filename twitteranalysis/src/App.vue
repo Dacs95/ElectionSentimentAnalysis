@@ -8,10 +8,11 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
   <!-- <v-navigation-drawer app></v-navigation-drawer> -->
   <v-toolbar>
-      <v-toolbar-title>Twitter Analysis</v-toolbar-title>
+      <v-toolbar-title class="titulo">Twitter Analysis</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat href="#/">Home</v-btn>
+        <v-btn
+        flat href="#/">Home</v-btn>
       </v-toolbar-items>
     </v-toolbar>
   <v-content>
@@ -57,6 +58,9 @@ export default {
 }
 .botones{
   width: 130px;
+}
+.titulo{
+  color: #E65100;
 }
 
 #app {

@@ -6,11 +6,15 @@
     <v-card dark tile flat color="grey darken-1" class="cuadro">
       <v-layout wrap justify-space-around align-center>
       <v-avatar size="250">
-        <img src="../../assets/margarita.png" alt="Margarita">
+
+    <a title="Margarita" href="#/tuits"><img src="../../assets/margarita.png" alt="Margarita" /></a>
+      <!-- <v-btn flat href="#/tuits" fab large dark> -->
+        <!-- <img src="../../assets/margarita.png" alt="Margarita"> -->
+      <!-- </v-btn> -->
       </v-avatar>
     </v-layout>
     <v-layout row wrap align-center>
-      <v-card-text class="px-0">Margarita Zavala Gómez
+        <v-card-text class="px-0">Margarita Zavala Gómez
         <br>Candidata independiente
         <br>Esposa de Calderón
     </v-card-text>
@@ -107,4 +111,5 @@
 .cuadroDos{
   padding-top: 50px;
 }
+
 </style>
