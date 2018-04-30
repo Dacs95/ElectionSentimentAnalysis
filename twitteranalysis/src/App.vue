@@ -19,23 +19,48 @@
       <router-view></router-view>
     </v-container>
   </v-content>
-  <v-footer app></v-footer>
+  <!-- FOOTER -->
+  <v-footer app>
+        <v-footer height="auto" class="grey darken-3" widht="auto">
+          <v-layout row wrap justify-center>
+            <v-btn
+              color="white"
+              flat
+              v-for="link in links"
+              :key="link">
+              {{ link }}
+            </v-btn>
+            <v-flex xs12 py-3 text-xs-center white--text>
+              &copy;2018 — <strong>Vuetify</strong>
+            </v-flex>
+          </v-layout>
+        </v-footer>
+  </v-footer>
 </v-app>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  //name: 'App'
+   data: () => ({
+     links: ['Home', 'About Us', 'Team', 'Services', 'Blog', 'Contact Us']
+   })
 }
+
+
 </script>
 
+
+
 <style>
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
+
 }
 </style>
