@@ -1,6 +1,8 @@
 import tweepy
 import pandas as pd  
 import numpy as np
+import pymongo
+from pymongo import MongoClient
 import json
 from credentials import *
 from IPython.display import display
@@ -18,7 +20,19 @@ api = tweepy.API(auth)
 #for tweet in public_tweets:
 #    print tweet.text
 
-name = "jumarogu"
+#Connection to mongo Atlas DataBase
+client = pymongo.MongoClient("mongodb://Dacs95:blanco12@cluster0-y8r2m.mongodb.net/sa-data")
+db = client["sa-data"]
+usuario = {"name":"juan",
+            "situation":"horrible"
+}
+db.persona.insert_one({"name":"juan", "situation":"horrible"})
+#print(db.persona.save(usuario))       
+#usuarios = db.persona
+#usuario_id = usuarios.insert_one(usuario).inserted_id
+#print(usuario_id)
+
+name = "lopezobrador_"
 tweetCount = 100
 # Calling the user_timeline function with our parameters
 results = api.user_timeline(id=name, count=tweetCount)
