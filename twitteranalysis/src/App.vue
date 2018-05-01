@@ -3,7 +3,6 @@
     <img src="./assets/logo.png">
     <router-view/>
   </div> -->
-
   <v-app>
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
   <!-- <v-navigation-drawer app></v-navigation-drawer> -->
@@ -46,8 +45,6 @@ export default {
      links: ['Home', 'About Us', 'Team', 'Services', 'Blog', 'Contact Us']
    })
 }
-
-
 </script>
 
 

@@ -6,11 +6,7 @@
     <v-card dark tile flat color="grey darken-1" class="cuadro">
       <v-layout wrap justify-space-around align-center>
       <v-avatar size="250">
-
-    <a title="Margarita" href="#/tuits"><img src="../../assets/margarita.png" alt="Margarita" /></a>
-      <!-- <v-btn flat href="#/tuits" fab large dark> -->
-        <!-- <img src="../../assets/margarita.png" alt="Margarita"> -->
-      <!-- </v-btn> -->
+    <a title="Margarita" href="#/tuits"><img src="../../assets/margaritaza.png" class="boton" alt="Margarita" /></a>
       </v-avatar>
     </v-layout>
     <v-layout row wrap align-center>
@@ -25,7 +21,7 @@
     <v-card dark tile flat color="grey darken-1" class="cuadro">
       <v-layout wrap justify-space-around align-center>
       <v-avatar size="250">
-        <img src="../../assets/anaya.png" alt="Anaya">
+        <a title="Anaya" href="#/tuits"><img src="../../assets/anaya.png" class="boton" alt="Anaya" /></a>
       </v-avatar>
     </v-layout>
     <v-layout row wrap align-center>
@@ -110,6 +106,12 @@
 
 .cuadroDos{
   padding-top: 50px;
+}
+
+.boton{
+  height: 250px !important;
+  width: 250px !important;
+
 }
 
 </style>

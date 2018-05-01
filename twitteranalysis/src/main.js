@@ -7,6 +7,8 @@ import store from './store/index'
 import router from './router'
 
 import Vuetify from 'vuetify'
+// import { Tweet, Moment, Timeline } from 'vue-tweet-embed'
+
 
 Vue.use(Vuetify)
 
