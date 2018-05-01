@@ -1,69 +1,70 @@
 import tweepy
-import pandas as pd  
-import numpy as np
 import pymongo
-import pprint
 from pymongo import MongoClient
 import json
 from credentials import *
-from IPython.display import display
-
-# Creating the authentication object
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-# Setting your access token and secret
-auth.set_access_token(access_token, access_token_secret)
-# Creating the API object while passing in auth information
-api = tweepy.API(auth) 
-
-# Using the API object to get tweets from your timeline, and storing it in a variable called public_tweets
-#public_tweets = api.home_timeline()
-# foreach through all tweets pulled
-#for tweet in public_tweets:
-#    print tweet.text
 
 #Connection to mongo Atlas DataBase
 client = MongoClient("mongodb+srv://Dacs95:blanco12@cluster0-y8r2m.mongodb.net/")
 db = client["sa-data"]
-usuario = {"name":"juan",
-            "situation":"horrible"
-}
-name = "Daniel"
-situation = "cool"
-pprint.pprint(db.persona.find_one({"name":"man"}))
-id = db.persona.find()
-print(id)
-#.insert({'name':"Daniel",'situation':"bad"})
-#db.persona.insert_one({'x':1})
-#print(db.persona.save(usuario))       
-#usuarios = db.persona
-#usuario_id = usuarios.insert_one(usuario).inserted_id
-#print(usuario_id)
 
-name = "lopezobrador_"
+def connectionTweepy():
+    # Creating the authentication object
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    # Setting your access token and secret
+    auth.set_access_token(access_token, access_token_secret)
+    # Creating the API object while passing in auth information
+    api = tweepy.API(auth)
+    return api
+
+def mine(id_name, tweetCount):
+    #Geting a reference to the tweepy api
+    api = connectionTweepy()
+    # Calling the user_timeline function with our parameters
+    results = api.user_timeline(id=id_name, count=tweetCount)
+    return results
+
+def populares(favourites , retweets):
+    prom = (favourites + retweets * 2)/2
+    return prom
+
+def top10(name):
+    lista = db["tweets-"+name].find().sort([('popularity',-1)]).limit(10)
+    return lista
+
+def saveTop10(top, name):
+    for x in range(0,10):
+        try:
+            db["top-"+name].insert_one(top[x])
+        except Exception as e:
+            print ("there is a problem ",e) 
+        else:
+            print ("Top Saved") 
+
+
+#name of the account you want a mine
+candidatos = ["lopezobrador_","JoseAMeadeK","RicardoAnayaC","Mzavalagc","JaimeRdzNL"]
+#number of tweets you want
 tweetCount = 100
-# Calling the user_timeline function with our parameters
-results = api.user_timeline(id=name, count=tweetCount)
+for c in range(0,len(candidatos)):
+    #Mine the timeline of a specific user
+    tweets = mine(candidatos[c],tweetCount)
+    #Check every tweet in the results array
+    for tweet in tweets:
+        try:
+            #Calculate the popularityAverage
+            avg = populares(tweet.favorite_count,tweet.retweet_count)
+            json_str = json.dumps(tweet._json)
+            jsonTweet = json.loads(json_str)
+            jsonTweet['popularity'] = avg
 
-# foreach through all tweets pulled
-#for tweet in results:
-   #Using panda to manage the data easily 
-data = pd.DataFrame(data=[tweet.text for tweet in results], columns=['Tweets'])
-data['len']  = np.array([len(tweet.text) for tweet in results])
-data['ID']   = np.array([tweet.id for tweet in results])
-data['Date'] = np.array([tweet.created_at for tweet in results])
-data['Source'] = np.array([tweet.source for tweet in results])
-data['Likes']  = np.array([tweet.favorite_count for tweet in results])
-data['RTs']    = np.array([tweet.retweet_count for tweet in results])
-#   printing the text stored inside the tweet object
-#   parsed = json.loads(tweet)
-#   print "Usr_ID " + tweet.user.id 
-#   print "Name: " + tweet.user.name
-#   print "Source: " + tweet.source
-#   print "Location: " + tweet.user.location
-#   print "Text : " + tweet.text
-#   print tweet.user.favourites_count   
-#   print tweet.created_at
+            #Save tweets in the database
+            db["tweets-"+candidatos[c]].insert_one(jsonTweet)
+        
+        except Exception as e:
+            print ("there is a problem ",e) 
+        else:
+            print ("inserted")
 
-# We display the first 10 elements of the dataframe:
-display(data.head(10))
-
+    topTweets = top10(candidatos[c])
+    saveTop10(topTweets,candidatos[c])
