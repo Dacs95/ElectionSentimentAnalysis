@@ -2,6 +2,7 @@ import tweepy
 import pandas as pd  
 import numpy as np
 import pymongo
+import pprint
 from pymongo import MongoClient
 import json
 from credentials import *
@@ -21,12 +22,18 @@ api = tweepy.API(auth)
 #    print tweet.text
 
 #Connection to mongo Atlas DataBase
-client = pymongo.MongoClient("mongodb://Dacs95:blanco12@cluster0-y8r2m.mongodb.net/sa-data")
+client = MongoClient("mongodb+srv://Dacs95:blanco12@cluster0-y8r2m.mongodb.net/")
 db = client["sa-data"]
 usuario = {"name":"juan",
             "situation":"horrible"
 }
-db.persona.insert_one({"name":"juan", "situation":"horrible"})
+name = "Daniel"
+situation = "cool"
+pprint.pprint(db.persona.find_one({"name":"man"}))
+id = db.persona.find()
+print(id)
+#.insert({'name':"Daniel",'situation':"bad"})
+#db.persona.insert_one({'x':1})
 #print(db.persona.save(usuario))       
 #usuarios = db.persona
 #usuario_id = usuarios.insert_one(usuario).inserted_id
