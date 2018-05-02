@@ -1,4 +1,4 @@
-#!/home/dacs/Documents/ElectionSentimentAnalysis/backend/services/miningGeneralTweets/env/bin/python
+#!/Users/jumarogu/Documents/ElectionSentimentAnalysis/backend/services/miningGeneralTweets/env/bin/python
 
 import sys
 import getopt
