@@ -3,7 +3,7 @@
     <v-layout row wrap>
       <v-flex md6 order-lg1>
         <v-layout row>
-  <v-flex xs12 sm6 offset-sm3>
+  <v-flex xs12 sm6 offset-sm3 class="bloqueCan">
     <v-card>
       <v-card-media height="200px">
       <img src="../../assets/amlo.png">
@@ -28,6 +28,20 @@
     </v-card>
   </v-flex>
 </v-layout>
+<v-card dark tile flat color="grey darken-1" class="cuadroAbajoIzq">
+  <template>
+    <div id="app">
+      <div class="container">
+        <div class="Chart__list">
+          <div class="Chart">
+            <h2>Linechart</h2>
+            <line-example></line-example>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</v-card>
         <!-- <v-card dark tile flat class="cuadroInfo">
           <v-list-tile>
             <v-list-tile-avatar size="100">
@@ -41,7 +55,7 @@
           </v-list-tile>
           </v-card> -->
       </v-flex>
-      
+
       <!-- Despliegue de tuits -->
       <v-flex md6 order-lg2>
         <v-list two-line>
@@ -50,30 +64,29 @@
             <v-list-tile-content>
                 <v-list-tile-title v-html = "tuit.user.name" class="textoDos"><strong></strong></v-list-tile-title>
                 <v-card-text v-html = "tuit.text" class="textoDos"></v-card-text>
+
+                <v-layout row wrap>
+                  <v-flex md2 order-md1 class="rtext">
+                      <v-card-text v-html = "tuit.retweet_count" class="textoTres">
+                      </v-card-text>
+                  </v-flex>
+                  <v-flex md2 order-md3 class="ltext">
+                    <v-card-text v-html = "tuit.favorite_count" class="textoCuatro">
+                    </v-card-text>
+                  </v-flex>
+                  <v-flex md2 order-md2 class="rt">
+                      <v-icon color="green">cached</v-icon>
+                  </v-flex>
+                  <v-flex md2 order-md4 class="like">
+                    <v-icon color="red">favorite_border</v-icon>
+                  </v-flex>
+                </v-layout>
+
             </v-list-tile-content>
           </v-card>
       </template>
     </v-list>
         </v-flex>
-    </v-layout>
-
-    <v-layout row class="cuadroDos" justify-center="true">
-      <v-flex md6 order-md1>
-        <v-card dark tile flat color="grey darken-1" class="cuadroAbajoIzq">
-          <template>
-            <div id="app">
-              <div class="container">
-                <div class="Chart__list">
-                  <div class="Chart">
-                    <h2>Linechart</h2>
-                    <line-example></line-example>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </template>
-        </v-card>
-      </v-flex>
     </v-layout>
   </v-container>
 </template>
@@ -142,6 +155,11 @@ export default {
 
 .cuadroAbajoIzq{
   left: 1px;
+  padding-top: 10px !important;
+}
+
+.bloqueCan{
+  padding-bottom: 100px;
 }
 
 </style>
