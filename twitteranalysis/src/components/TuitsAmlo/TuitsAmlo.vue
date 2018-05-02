@@ -82,6 +82,9 @@
                   <v-flex md2 order-md4 class="like">
                     <v-icon color="red">favorite_border</v-icon>
                   </v-flex>
+                  <v-flex md2 order-md4 class="analisis">
+                    <v-icon color="red">favorite_border</v-icon>
+                  </v-flex>
                 </v-layout>
 
             </v-list-tile-content>
@@ -164,6 +167,27 @@ export default {
 
 .bloqueCan{
   padding-bottom: 100px;
+}
+.textoTres{
+  color: #212121;
+  width: 100px;
+  padding-left: 100px;
+
+}
+.textoCuatro{
+  color: #212121;
+  width: 100px;
+  padding-left: 100px;
+
+}
+.analisis{
+  width: 100px;
+  padding-left: 100px;
+}
+
+.rt{
+}
+.like{
 }
 
 </style>
