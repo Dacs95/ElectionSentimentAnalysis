@@ -26,6 +26,10 @@ def connectionTweepy():
 
 def mineKeyword(keywords):
     
+    for keyword in keywords[]
+    results = api.search(q="lopez obrador" , rpp=100, page=1)
+    for result in results: 
+        print(result.text)
 
     api = connectionTweepy()
 
