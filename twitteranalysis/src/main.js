@@ -10,6 +10,8 @@ import Vuetify from 'vuetify'
 // import { Tweet, Moment, Timeline } from 'vue-tweet-embed'
 import VueCharts from 'vue-chartjs'
 import { Bar, Line } from 'vue-chartjs'
+import Chart from 'chart.js'
+
 
 
 Vue.use(Vuetify)

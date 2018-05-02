@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <h1><p>Hola</p></h1>
     <v-layout row wrap>
       <v-flex md6 order-lg1>
         <v-layout row>
@@ -22,26 +23,26 @@
       </v-card-actions>
       <v-slide-y-transition>
         <v-card-text v-show="show">
-          Es un idiota.
+          Educación: Ciencias Politicas y Administración Pública.
+          <br>
+          Alma máter: UNAM.
+          <br>
+          Es un político, politólogo y escritor mexicano. Es uno de los fundadores y militantes del partido Movimiento Regeneracional Nacional(Morena).
         </v-card-text>
       </v-slide-y-transition>
     </v-card>
   </v-flex>
 </v-layout>
+<!-- <template v-if="ok">
 <v-card dark tile flat color="grey darken-1" class="cuadroAbajoIzq">
   <template>
-    <div id="app">
-      <div class="container">
-        <div class="Chart__list">
-          <div class="Chart">
-            <h2>Linechart</h2>
-            <line-example></line-example>
-          </div>
-        </div>
-      </div>
-    </div>
-  </template>
+  <div class="small">
+    <line-chart :data="datacollection"></line-chart>
+    <button @click="fillData()">Randomize</button>
+  </div>
+</template>
 </v-card>
+</template> -->
         <!-- <v-card dark tile flat class="cuadroInfo">
           <v-list-tile>
             <v-list-tile-avatar size="100">
@@ -57,6 +58,7 @@
       </v-flex>
 
       <!-- Despliegue de tuits -->
+
       <v-flex md6 order-lg2>
         <v-layout row>
           <v-flex  offset-sm2 xs12 sm12>
@@ -83,13 +85,52 @@
                     <v-icon color="red">favorite_border</v-icon>
                   </v-flex>
                   <v-flex md2 order-md4 class="analisis">
-                    <v-icon color="red">favorite_border</v-icon>
+                    <v-tooltip bottom>
+                      <v-btn  flat icon color="orange" slot="activator" href="#/tuitsResp">
+                        <v-icon>trending_up</v-icon>
+                      </v-btn>
+                      <span>Análisis</span>
+                    </v-tooltip>
                   </v-flex>
                 </v-layout>
-
             </v-list-tile-content>
           </v-card>
       </template>
+
+      <!-- Template que va a aparecer -->
+      <!-- <template v-for="(tuitResp, index) in tuitsResp" v-else>
+      <v-card dark tile flat class="cuadroTuit">
+        <v-list-tile-content>
+            <v-list-tile-title v-html = "tuitResp.user.name" class="textoDos"><strong></strong></v-list-tile-title>
+            <v-card-text v-html = "tuitResp.text" class="textoDos"></v-card-text>
+
+            <v-layout row wrap>
+              <v-flex md2 order-md1 class="rtext">
+                  <v-card-text v-html = "tuitResp.retweet_count" class="textoTres">
+                  </v-card-text>
+              </v-flex>
+              <v-flex md2 order-md2 class="rt">
+                  <v-icon color="green">cached</v-icon>
+              </v-flex>
+              <v-flex md2 order-md3 class="ltext">
+                <v-card-text v-html = "tuitResp.favorite_count" class="textoCuatro">
+                </v-card-text>
+              </v-flex>
+              <v-flex md2 order-md4 class="like">
+                <v-icon color="red">favorite</v-icon>
+              </v-flex>
+              <v-flex md2 order-md4 class="analisis">
+                <v-tooltip bottom>
+                  <v-btn  flat icon color="orange" slot="activator" @click="ok = false">
+                    <v-icon>trending_up</v-icon>
+                  </v-btn>
+                  <span>Análisis</span>
+                </v-tooltip>
+              </v-flex>
+            </v-layout>
+        </v-list-tile-content>
+      </v-card>
+  </template> -->
     </v-list>
   </v-flex>
   </v-layout>
@@ -106,6 +147,7 @@ export default {
   LineExample
   },
    data: () => ({
+     ok: true,
      tuit: {
        _Id: '',
        name: '',
@@ -114,14 +156,37 @@ export default {
      tuits: [{
      }],
      show: false,
-
+     datacollection:{
+       labels:["A","B","C"]
+     }
   }),
+  mounted(){
+     this.renderChart(this.datacollection,{responsive:true})
+   },
   beforeMount(){
   //this.items = //get items from api
   let candId = 'lopezobrador_'
   console.log(candId)
   this.$store.dispatch('getAllTuits', candId).then(tuits => this.tuits = tuits)
+
 }
+
+// ,
+// methods: {
+//   fillData(){
+//     this.datacollection = {
+//       labels: ['Positivos', 'Negativos', 'Neutros'],
+//       datasets: [
+//         {
+//           label: 'Analisis',
+//           backgroundColor: '#f87979',
+//           data: [ ]
+//
+//       }]
+//     }
+//   }
+// }
+
 }
 </script>
 
@@ -181,13 +246,15 @@ export default {
 
 }
 .analisis{
-  width: 100px;
-  padding-left: 100px;
+  width: 50px;
+  padding-left: 70px;
 }
 
 .rt{
+  padding-top: 10px;
 }
 .like{
+  padding-top: 10px;
 }
 
 </style>

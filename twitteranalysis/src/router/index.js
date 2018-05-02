@@ -8,8 +8,6 @@ import TuitsAnaya from '@/components/TuitsAnaya/TuitsAnaya'
 import TuitsBronco from '@/components/TuitsBronco/TuitsBronco'
 import TuitsMeade from '@/components/TuitsMeade/TuitsMeade'
 
-
-
 Vue.use(Router)
 
 export default new Router({

@@ -1,22 +1,10 @@
-import {Bar} from 'vue-chartjs'
+import { Pie } from 'vue-chartjs'
 
 export default {
-  extends: Bar,
+  extends: Pie,
+  props: ['datacollection', 'options'],
   mounted () {
-    this.renderChart({
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [
-        {
-          label: 'Data One',
-          backgroundColor: '#FAFAFA',
-          data: [40, 39, 10, 40, 39, 80, 40]
-        },{
-          label: 'Data Two',
-          backgroundColor: '#05CBE1',
-          data: [60, 55, 32, 10, 2, 12, 53]
-        }
-      ]
-    }, {responsive: true, maintainAspectRatio: false})
-
+    this.renderChart(this.datacollection, this.options,
+      {responsive: true, maintainAspectRatio: false})
   }
 }

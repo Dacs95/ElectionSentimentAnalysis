@@ -8,6 +8,11 @@ const actions = {
     return axios.get(`${apiTuit}/toptweets/${candId}`).then((res) =>{
       return res.data
     })
+  },
+  getAllTuitsResp({commit}, candId){
+    return axios.get(`${apiTuit}/topuserstweets/${candId}`).then((res) => {
+      return res.data
+    })
   }
 }
 
