@@ -47,7 +47,7 @@
           <template v-for="(tuit, index) in tuits">
           <v-card dark tile flat class="cuadroTuit">
             <v-list-tile-content>
-                <v-list-tile-title v-html = "tuit.user" class="textoDos"><strong></strong></v-list-tile-title>
+                <v-list-tile-title v-html = "tuit.user.name" class="textoDos"><strong></strong></v-list-tile-title>
                 <v-card-text v-html = "tuit.text" class="textoDos"></v-card-text>
             </v-list-tile-content>
           </v-card>
@@ -97,9 +97,9 @@ export default {
   }),
   beforeMount(){
   //this.items = //get items from api
-  let tuitId = this.tuit.id
-  console.log(tuitId)
-  this.$store.dispatch('getAllTuits', tuitId).then(tuits => this.tuits = tuits)
+  let candId = 'lopezobrador_'
+  console.log(candId)
+  this.$store.dispatch('getAllTuits', candId).then(tuits => this.tuits = tuits)
 }
 }
 </script>

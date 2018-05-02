@@ -10,7 +10,7 @@
       </v-avatar>
     </v-layout>
     <v-layout row wrap align-center>
-        <v-card-text class="px-0">Margarita Zavala Gómez
+        <v-card-text class="px-0" color="grey darken-1">Margarita Zavala Gómez
         <br>Candidata independiente
         <br>Esposa de Calderón
     </v-card-text>
@@ -111,7 +111,7 @@
 .boton{
   height: 250px !important;
   width: 250px !important;
-
 }
+
 
 </style>
