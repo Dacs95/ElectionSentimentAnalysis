@@ -8,6 +8,12 @@ import TuitsAnaya from '@/components/TuitsAnaya/TuitsAnaya'
 import TuitsBronco from '@/components/TuitsBronco/TuitsBronco'
 import TuitsMeade from '@/components/TuitsMeade/TuitsMeade'
 import TuitsAmloResp from '@/components/TuitsAmloResp/TuitsAmloResp'
+import TuitsAnayaResp from '@/components/TuitsAnayaResp/TuitsAnayaResp'
+import TuitsMargaritaResp from '@/components/TuitsMargaritaResp/TuitsMargaritaResp'
+import TuitsBroncoResp from '@/components/TuitsBroncoResp/TuitsBroncoResp'
+
+
+
 
 
 
@@ -50,6 +56,21 @@ export default new Router({
       path: '/tuitsAmloResp',
       name: 'TuitsAmloResp',
       component: TuitsAmloResp
+    },
+    {
+      path: '/tuitsAnayaResp',
+      name: 'TuitsAnayaResp',
+      component: TuitsAnayaResp
+    },
+    {
+      path: '/tuitsMargaritaResp',
+      name: 'TuitsMargaritaResp',
+      component: TuitsMargaritaResp
+    },
+    {
+      path: '/tuitsBroncoResp',
+      name: 'TuitsBroncoResp',
+      component: TuitsBroncoResp
     }
   ]
 })

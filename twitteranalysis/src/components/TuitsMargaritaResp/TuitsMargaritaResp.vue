@@ -6,12 +6,12 @@
   <v-flex xs12 sm6 offset-sm3>
     <v-card>
       <v-card-media height="200px">
-      <img src="../../assets/anaya.png">
+      <img src="../../assets/margarita.png">
       </v-card-media>
       <v-card-title primary-title>
         <div>
-          <div class="headline">Ricardo Anaya Cortés</div>
-          <span class="texto">Candidato del PAN</span>
+          <div class="headline">Margarita Zavala Gómez</div>
+          <span class="texto">Candidata independiente</span>
         </div>
       </v-card-title>
       <v-card-actions>
@@ -22,7 +22,7 @@
       </v-card-actions>
       <v-slide-y-transition>
         <v-card-text v-show="show">
-          Es un idiota.
+          Margarita cuenta actualmente con 1.4 millones de seguidores en Twitter.
         </v-card-text>
       </v-slide-y-transition>
     </v-card>
@@ -46,21 +46,21 @@
         <v-layout row>
           <v-flex  offset-sm2 xs12 sm12>
         <v-list two-line>
-          <template v-for="(tuit, index) in tuits">
+          <template v-for="(tuitResp, index) in tuitsResp">
           <v-card dark tile flat class="cuadroTuit">
             <v-list-tile-content>
-                <v-list-tile-title v-html = "tuit.user.name" class="textoDos"><strong></strong></v-list-tile-title>
-                <v-card-text v-html = "tuit.text" class="textoDos"></v-card-text>
+                <v-list-tile-title v-html = "tuitResp.user.name" class="textoDos"><strong></strong></v-list-tile-title>
+                <v-card-text v-html = "tuitResp.text" class="textoDos"></v-card-text>
                 <v-layout row wrap>
                   <v-flex md2 order-md1 class="rtext">
-                      <v-card-text v-html = "tuit.retweet_count" class="textoTres">
+                      <v-card-text v-html = "tuitResp.retweet_count" class="textoTres">
                       </v-card-text>
                   </v-flex>
                   <v-flex md2 order-md2 class="rt">
                       <v-icon color="green">cached</v-icon>
                   </v-flex>
                   <v-flex md2 order-md3 class="ltext">
-                    <v-card-text v-html = "tuit.favorite_count" class="textoCuatro">
+                    <v-card-text v-html = "tuitResp.favorite_count" class="textoCuatro">
                     </v-card-text>
                   </v-flex>
                   <v-flex md2 order-md4 class="like">
@@ -68,7 +68,7 @@
                   </v-flex>
                   <v-flex md2 order-md4 class="like">
                     <v-tooltip bottom>
-                      <v-btn  flat icon color="orange" slot="activator" href="#/tuitsAnayaResp">
+                      <v-btn  flat icon color="orange" slot="activator">
                          <v-icon>trending_up</v-icon>
                       </v-btn>
                       <span>Análisis</span>
@@ -80,8 +80,8 @@
       </template>
     </v-list>
   </v-flex>
-  </v-layout>
-        </v-flex>
+      </v-layout>
+    </v-flex>
     </v-layout>
 
     <v-layout row class="cuadroDos" justify-center="true">
@@ -113,21 +113,21 @@ export default {
   LineExample
   },
    data: () => ({
-     tuit: {
+     tuitResp: {
        _Id: '',
        name: '',
        text: ''
      },
-     tuits: [{
+     tuitsResp: [{
      }],
      show: false,
 
   }),
   beforeMount(){
   //this.items = //get items from api
-  let candId = 'RicardoAnayaC'
+  let candId = 'Mzavalagc'
   console.log(candId)
-  this.$store.dispatch('getAllTuits', candId).then(tuits => this.tuits = tuits)
+  this.$store.dispatch('getAllTuitsResp', candId).then(tuitsResp => this.tuitsResp = tuitsResp)
 }
 }
 </script>

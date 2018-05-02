@@ -84,7 +84,7 @@
                   </v-flex>
                   <v-flex md2 order-md4 class="like">
                     <v-tooltip bottom>
-                      <v-btn  flat icon color="orange" slot="activator">
+                      <v-btn  flat icon color="orange" slot="activator" href="#/tuitsBroncoResp">
                          <v-icon>trending_up</v-icon>
                       </v-btn>
                       <span>Análisis</span>
