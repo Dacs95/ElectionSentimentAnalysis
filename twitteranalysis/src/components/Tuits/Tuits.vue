@@ -55,12 +55,35 @@
     </v-list>
         </v-flex>
     </v-layout>
+
+    <v-layout row class="cuadroDos" justify-center="true">
+      <v-flex md6 order-md1>
+        <v-card dark tile flat color="grey darken-1" class="cuadroAbajoIzq">
+          <template>
+            <div id="app">
+              <div class="container">
+                <div class="Chart__list">
+                  <div class="Chart">
+                    <h2>Linechart</h2>
+                    <line-example></line-example>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </v-card>
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
 <script>
+import LineExample from '../Charts.js'
 export default {
   //name: 'App'
+  components: {
+  LineExample
+  },
    data: () => ({
      tuit: {
        _Id: '',
@@ -69,7 +92,8 @@ export default {
      },
      tuits: [{
      }],
-     show: false
+     show: false,
+
   }),
   beforeMount(){
   //this.items = //get items from api
@@ -109,6 +133,14 @@ export default {
 }
 .textoDos{
   color: #0097A7;
+}
+
+.cuadroDos{
+  padding-top: 50px;
+}
+
+.cuadroAbajoIzq{
+  left: 1px;
 }
 
 </style>
