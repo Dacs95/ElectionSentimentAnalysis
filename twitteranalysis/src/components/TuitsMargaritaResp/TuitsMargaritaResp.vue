@@ -3,7 +3,7 @@
     <v-layout row wrap>
       <v-flex md6 order-lg1>
         <v-layout row>
-  <v-flex xs12 sm6 offset-sm3>
+  <v-flex xs12 sm6 offset-sm3 class="bloqueCan">
     <v-card>
       <v-card-media height="200px">
       <img src="../../assets/margarita.png">
@@ -28,6 +28,20 @@
     </v-card>
   </v-flex>
 </v-layout>
+<v-card dark tile flat color="grey darken-1" class="cuadroAbajoIzq">
+  <template>
+    <div id="app">
+      <div class="container">
+        <div class="Chart__list">
+          <div class="Chart">
+            <h2>Linechart</h2>
+            <line-example></line-example>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</v-card>
         <!-- <v-card dark tile flat class="cuadroInfo">
           <v-list-tile>
             <v-list-tile-avatar size="100">
@@ -86,20 +100,7 @@
 
     <v-layout row class="cuadroDos" justify-center="true">
       <v-flex md6 order-md1>
-        <v-card dark tile flat color="grey darken-1" class="cuadroAbajoIzq">
-          <template>
-            <div id="app">
-              <div class="container">
-                <div class="Chart__list">
-                  <div class="Chart">
-                    <h2>Linechart</h2>
-                    <line-example></line-example>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </template>
-        </v-card>
+
       </v-flex>
     </v-layout>
   </v-container>
@@ -192,6 +193,9 @@ export default {
   color: #212121;
   width: 100px;
   padding-left: 100px;
+}
+.bloqueCan{
+  padding-bottom: 100px;
 }
 
 </style>
