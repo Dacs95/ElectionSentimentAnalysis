@@ -41,7 +41,6 @@ def saveTop10(top, name):
         else:
             print ("Top Saved") 
 
-
 #name of the account you want a mine
 candidatos = ["lopezobrador_","JoseAMeadeK","RicardoAnayaC","Mzavalagc","JaimeRdzNL"]
 #number of tweets you want
@@ -68,3 +67,4 @@ for c in range(0,len(candidatos)):
 
     topTweets = top10(candidatos[c])
     saveTop10(topTweets,candidatos[c])
+    
