@@ -4,6 +4,7 @@ from pymongo import MongoClient
 import json
 from credentials import *
 
+usersDic = []
 #Connection to mongo Atlas DataBase
 client = MongoClient("mongodb+srv://Dacs95:blanco12@cluster0-y8r2m.mongodb.net/")
 db = client["sa-data"]
@@ -23,6 +24,24 @@ def connectionTweepy():
     # Creating the API object while passing in auth information
     api = tweepy.API(auth)
     return api
+    
+def isFromCandidate(tweet, id):
+    us = tweet["user"]
+    if us["screen_name"] == id:
+        return True
+    else:
+        usersDic.append(us)
+        return False
+
+def saveUsers(users,name):
+    for user in users:
+        try:
+            db["users-"+name].insert_one(user)
+        except expression as identifier:
+            print ("there is a problem ",e)
+        else:
+            print("User Saved Wiiiiii XDXDXD me vale verga a la verga")
+    
 
 def mineKeyword(keywords):
     
