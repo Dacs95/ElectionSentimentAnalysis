@@ -82,6 +82,14 @@
                   <v-flex md2 order-md4 class="like">
                     <v-icon color="red">favorite_border</v-icon>
                   </v-flex>
+                  <v-flex md2 order-md4 class="like">
+                    <v-tooltip bottom>
+                      <v-btn  flat icon color="orange" slot="activator" >
+                         <v-icon>trending_up</v-icon>
+                      </v-btn>
+                      <span>Análisis</span>
+                    </v-tooltip>
+                  </v-flex>
                 </v-layout>
 
             </v-list-tile-content>

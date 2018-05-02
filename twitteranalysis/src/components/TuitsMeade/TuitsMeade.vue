@@ -43,16 +43,44 @@
       </v-flex>
 
       <v-flex md6 order-lg2>
+        <v-layout row>
+          <v-flex  offset-sm2 xs12 sm12>
         <v-list two-line>
           <template v-for="(tuit, index) in tuits">
           <v-card dark tile flat class="cuadroTuit">
             <v-list-tile-content>
                 <v-list-tile-title v-html = "tuit.user.name" class="textoDos"><strong></strong></v-list-tile-title>
                 <v-card-text v-html = "tuit.text" class="textoDos"></v-card-text>
+                <v-layout row wrap>
+                  <v-flex md2 order-md1 class="rtext">
+                      <v-card-text v-html = "tuit.retweet_count" class="textoTres">
+                      </v-card-text>
+                  </v-flex>
+                  <v-flex md2 order-md2 class="rt">
+                      <v-icon color="green">cached</v-icon>
+                  </v-flex>
+                  <v-flex md2 order-md3 class="ltext">
+                    <v-card-text v-html = "tuit.favorite_count" class="textoCuatro">
+                    </v-card-text>
+                  </v-flex>
+                  <v-flex md2 order-md4 class="like">
+                    <v-icon color="red">favorite_border</v-icon>
+                  </v-flex>
+                  <v-flex md2 order-md4 class="like">
+                    <v-tooltip bottom>
+                      <v-btn  flat icon color="orange" slot="activator">
+                         <v-icon>trending_up</v-icon>
+                      </v-btn>
+                      <span>Análisis</span>
+                    </v-tooltip>
+                  </v-flex>
+                </v-layout>
             </v-list-tile-content>
           </v-card>
       </template>
     </v-list>
+  </v-flex>
+  </v-layout>
         </v-flex>
     </v-layout>
 
@@ -141,6 +169,10 @@ export default {
 
 .cuadroAbajoIzq{
   left: 1px;
+}
+
+.bloqueCan{
+  padding-bottom: 100px;
 }
 
 </style>
