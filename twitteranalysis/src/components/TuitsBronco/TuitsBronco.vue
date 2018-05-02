@@ -6,12 +6,12 @@
   <v-flex xs12 sm6 offset-sm3>
     <v-card>
       <v-card-media height="200px">
-      <img src="../../assets/margarita.png">
+      <img src="../../assets/bronco.png">
       </v-card-media>
       <v-card-title primary-title>
         <div>
-          <div class="headline">Margarita Zavala Gómez</div>
-          <span class="texto">Candidata independiente</span>
+          <div class="headline">Jaime Rodriguez Calderón</div>
+          <span class="texto">Candidato independiente</span>
         </div>
       </v-card-title>
       <v-card-actions>
@@ -22,7 +22,7 @@
       </v-card-actions>
       <v-slide-y-transition>
         <v-card-text v-show="show">
-          Margarita cuenta actualmente con 1.4 millones de seguidores en Twitter.
+          Es un idiota.
         </v-card-text>
       </v-slide-y-transition>
     </v-card>
@@ -49,6 +49,16 @@
             <v-list-tile-content>
                 <v-list-tile-title v-html = "tuit.user.name" class="textoDos"><strong></strong></v-list-tile-title>
                 <v-card-text v-html = "tuit.text" class="textoDos"></v-card-text>
+                <v-layout row>
+                  <v-flex xs6 order-lg1>
+                    <v-icon color="green">cached</v-icon>
+                    <v-card-text v-html = "tuit.retweet_count" class="textoTres">
+                    </v-card-text>
+                  </v-flex>
+                  <v-flex xs6 order-lg2>
+                    <v-card-text v-html = "tuit.favorite_count" class="textoCuatro"></v-card-text>
+                  </v-flex>
+                </v-layout>
             </v-list-tile-content>
           </v-card>
       </template>
@@ -88,7 +98,9 @@ export default {
      tuit: {
        _Id: '',
        name: '',
-       text: ''
+       text: '',
+       rt: '',
+       likes: ''
      },
      tuits: [{
      }],
@@ -97,7 +109,7 @@ export default {
   }),
   beforeMount(){
   //this.items = //get items from api
-  let candId = 'Mzavalagc'
+  let candId = 'JaimeRdzNL'
   console.log(candId)
   this.$store.dispatch('getAllTuits', candId).then(tuits => this.tuits = tuits)
 }
@@ -135,6 +147,17 @@ export default {
   color: #0097A7;
 }
 
+.textoTres{
+  color: #0097A7;
+  padding-left: 80px;
+
+}
+
+.textoCuatro{
+  color: #0097A7;
+  padding-left: 100px;
+}
+
 .cuadroDos{
   padding-top: 50px;
 }
@@ -142,5 +165,7 @@ export default {
 .cuadroAbajoIzq{
   left: 1px;
 }
+
+
 
 </style>

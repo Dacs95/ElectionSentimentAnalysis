@@ -12,6 +12,16 @@
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn
         flat href="#/">Home</v-btn>
+        <v-btn
+        flat href="#/tuits">Margarita</v-btn>
+        <v-btn
+        flat href="#/tuitsAmlo">AMLO</v-btn>
+        <v-btn
+        flat href="#/tuitsAnaya">Anaya</v-btn>
+        <v-btn
+        flat href="#/tuitsBronco">Bronco</v-btn>
+        <v-btn
+        flat href="#/tuitsMeade">Meade</v-btn>
       </v-toolbar-items>
     </v-toolbar>
   <v-content>

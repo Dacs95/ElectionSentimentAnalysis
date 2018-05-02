@@ -6,12 +6,12 @@
   <v-flex xs12 sm6 offset-sm3>
     <v-card>
       <v-card-media height="200px">
-      <img src="../../assets/margarita.png">
+      <img src="../../assets/amlo.png">
       </v-card-media>
       <v-card-title primary-title>
         <div>
-          <div class="headline">Margarita Zavala Gómez</div>
-          <span class="texto">Candidata independiente</span>
+          <div class="headline">Andres Manuel Lopez Obrador</div>
+          <span class="texto">Candidato de Morena</span>
         </div>
       </v-card-title>
       <v-card-actions>
@@ -22,7 +22,7 @@
       </v-card-actions>
       <v-slide-y-transition>
         <v-card-text v-show="show">
-          Margarita cuenta actualmente con 1.4 millones de seguidores en Twitter.
+          Es un idiota.
         </v-card-text>
       </v-slide-y-transition>
     </v-card>
@@ -97,7 +97,7 @@ export default {
   }),
   beforeMount(){
   //this.items = //get items from api
-  let candId = 'Mzavalagc'
+  let candId = 'lopezobrador_'
   console.log(candId)
   this.$store.dispatch('getAllTuits', candId).then(tuits => this.tuits = tuits)
 }

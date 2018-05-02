@@ -21,7 +21,7 @@
     <v-card dark tile flat color="grey darken-1" class="cuadro">
       <v-layout wrap justify-space-around align-center>
       <v-avatar size="250">
-        <a title="Anaya" href="#/tuits"><img src="../../assets/anaya.png" class="boton" alt="Anaya" /></a>
+        <a title="Anaya" href="#/tuitsAnaya"><img src="../../assets/anaya.png" class="boton" alt="Anaya" /></a>
       </v-avatar>
     </v-layout>
     <v-layout row wrap align-center>
@@ -36,7 +36,7 @@
     <v-card dark tile flat color="grey darken-1" class="cuadro">
       <v-layout wrap justify-space-around align-center>
       <v-avatar size="250">
-        <img src="../../assets/bronco.png" alt="Bronco">
+        <a title="Bronco" href="#/tuitsBronco"><img src="../../assets/bronco.png" class="boton" alt="Bronco" /></a>
       </v-avatar>
     </v-layout>
     <v-layout row wrap align-center>
@@ -55,7 +55,7 @@
       <v-card dark tile flat color="grey darken-1" class="cuadroAbajoIzq">
         <v-layout wrap justify-space-around align-center>
         <v-avatar size="250">
-          <img src="../../assets/amlo.png" alt="AMLO">
+          <a title="AMLO" href="#/tuitsAmlo"><img src="../../assets/amlo.png" class="boton" alt="AMLO" /></a>
         </v-avatar>
       </v-layout>
       <v-layout row wrap align-center>
@@ -70,7 +70,7 @@
       <v-card dark tile flat color="grey darken-1" class="cuadroAbajoDer">
         <v-layout wrap justify-space-around align-center>
         <v-avatar size="250">
-          <img src="../../assets/meade.png" alt="Meade">
+          <a title="Meade" href="#/tuitsMeade"><img src="../../assets/meade.png" class="boton" alt="Meade" /></a>
         </v-avatar>
       </v-layout>
       <v-layout row wrap align-center>
