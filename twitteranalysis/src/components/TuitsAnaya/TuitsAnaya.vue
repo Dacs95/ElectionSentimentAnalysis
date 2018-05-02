@@ -66,7 +66,7 @@
                   <v-flex md2 order-md4 class="like">
                     <v-icon color="red">favorite_border</v-icon>
                   </v-flex>
-                  <v-flex md2 order-md4 class="like">
+                  <v-flex md2 order-md4 class="analisis">
                     <v-tooltip bottom>
                       <v-btn  flat icon color="orange" slot="activator" href="#/tuitsAnayaResp">
                          <v-icon>trending_up</v-icon>
@@ -152,7 +152,7 @@ export default {
   padding-bottom: 10px;
   padding-left: 20px;
   border-radius: 5px 5px 5px 5px;
-  width: 500px;
+  width: 430px;
   left: 130px;
   background: none !important;
   border-bottom: 2px solid;
@@ -169,6 +169,28 @@ export default {
 
 .cuadroAbajoIzq{
   left: 1px;
+}
+.rt{
+  padding-top: 10px;
+}
+
+.like{
+  padding-top: 10px;
+}
+
+.analisis{
+  width: 50px;
+  padding-left: 70px;
+}
+.textoTres{
+  color: #212121;
+  width: 100px;
+  padding-left: 100px;
+}
+.textoCuatro{
+  color: #212121;
+  width: 100px;
+  padding-left: 100px;
 }
 
 </style>

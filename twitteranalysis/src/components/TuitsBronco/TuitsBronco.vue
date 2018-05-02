@@ -82,7 +82,7 @@
                   <v-flex md2 order-md4 class="like">
                     <v-icon color="red">favorite_border</v-icon>
                   </v-flex>
-                  <v-flex md2 order-md4 class="like">
+                  <v-flex md2 order-md4 class="analisis">
                     <v-tooltip bottom>
                       <v-btn  flat icon color="orange" slot="activator" href="#/tuitsBroncoResp">
                          <v-icon>trending_up</v-icon>
@@ -172,6 +172,28 @@ export default {
 
 .bloqueCan{
   padding-bottom: 100px;
+}
+.rt{
+  padding-top: 10px;
+}
+
+.like{
+  padding-top: 10px;
+}
+
+.analisis{
+  width: 50px;
+  padding-left: 70px;
+}
+.textoTres{
+  color: #212121;
+  width: 100px;
+  padding-left: 100px;
+}
+.textoCuatro{
+  color: #212121;
+  width: 100px;
+  padding-left: 100px;
 }
 
 </style>
