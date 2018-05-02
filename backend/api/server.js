@@ -41,11 +41,11 @@ router.get('/api/toptweets/:id', function(req,res){
         collection.find({}).toArray(function(err, docs){
             assert.equal(null, err);
             assert.ok(docs != null);
-
+            tweets = docs
             console.log("Responding with top tweets of " + collectionName);
             client.close();
 
-            res.status(200).json(docs);
+            res.status(200).json(tweets);
         });
     });
 });
