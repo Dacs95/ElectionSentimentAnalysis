@@ -5,58 +5,60 @@ import pymongo
 from pymongo import MongoClient
 import json
 from credentials import *
+import json
 from IPython.display import display
+import ast
+
+#Connection to mongo Atlas DataBase cluster0-y8r2m.mongodb.net
+client = MongoClient("mongodb+srv://Dacs95:blanco12@cluster0-y8r2m.mongodb.net/")
+db = client["sa-data"]
 
 # Creating the authentication object
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 # Setting your access token and secret
-auth.set_access_token(access_token, access_token_secret)
 # Creating the API object while passing in auth information
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth) 
 
-# Using the API object to get tweets from your timeline, and storing it in a variable called public_tweets
-#public_tweets = api.home_timeline()
-# foreach through all tweets pulled
-#for tweet in public_tweets:
-#    print tweet.text
-
-#Connection to mongo Atlas DataBase
-client = pymongo.MongoClient("mongodb://Dacs95:blanco12@cluster0-y8r2m.mongodb.net/sa-data")
-db = client["sa-data"]
 usuario = {"name":"juan",
             "situation":"horrible"
 }
-db.persona.insert_one({"name":"juan", "situation":"horrible"})
-#print(db.persona.save(usuario))       
-#usuarios = db.persona
-#usuario_id = usuarios.insert_one(usuario).inserted_id
-#print(usuario_id)
+#db.persona.insert_one({"name":"juan", "situation":"horrible"})
 
-name = "lopezobrador_"
+name = 'lopezobrador_'
 tweetCount = 100
-# Calling the user_timeline function with our parameters
 results = api.user_timeline(id=name, count=tweetCount)
 
-# foreach through all tweets pulled
-#for tweet in results:
-   #Using panda to manage the data easily 
-data = pd.DataFrame(data=[tweet.text for tweet in results], columns=['Tweets'])
-data['len']  = np.array([len(tweet.text) for tweet in results])
-data['ID']   = np.array([tweet.id for tweet in results])
-data['Date'] = np.array([tweet.created_at for tweet in results])
-data['Source'] = np.array([tweet.source for tweet in results])
-data['Likes']  = np.array([tweet.favorite_count for tweet in results])
-data['RTs']    = np.array([tweet.retweet_count for tweet in results])
-#   printing the text stored inside the tweet object
-#   parsed = json.loads(tweet)
-#   print "Usr_ID " + tweet.user.id 
-#   print "Name: " + tweet.user.name
-#   print "Source: " + tweet.source
-#   print "Location: " + tweet.user.location
-#   print "Text : " + tweet.text
-#   print tweet.user.favourites_count   
-#   print tweet.created_at
+def populares(favourites , retweets):
+    prom = (favourites + retweets * 2)/2
+    return prom
 
-# We display the first 10 elements of the dataframe:
-display(data.head(10))
+#Check every tweet in the results array
+for x in range(0,len(results)):
+    try:
+        #Calculate the popularityAverage
+        avg = populares(results[x].favorite_count,results[x].retweet_count)
+        json_str = json.dumps(results[x]._json)
+        jsonTweet = json.loads(json_str)
+        jsonTweet['popularity']  =  avg
+        print(jsonTweet['id'])
 
+        #Save tweets in the database
+        #db["tweets-lopezobrador_"].insert_one(jsonTweet)
+        
+    except Exception as e:
+        print ("there is a problem ", e) 
+    else:
+        print ("inserted")
+
+#top10
+lopezTimelineCollection = db["tweets-lopezobrador_"]
+top10 = lopezTimelineCollection.find().sort([('popularity',-1)]).limit(10)
+#db['top-lopezobrador_'].insert_many(top10)
+for results in top10: 
+    print(results["id"])
+
+results = api.search(q="lopez obrador" , rpp=100, page=1)
+
+for result in results: 
+    print(result.text)
