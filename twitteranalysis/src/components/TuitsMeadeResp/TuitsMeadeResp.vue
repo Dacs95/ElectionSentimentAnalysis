@@ -46,21 +46,21 @@
         <v-layout row>
           <v-flex  offset-sm2 xs12 sm12>
         <v-list two-line>
-          <template v-for="(tuit, index) in tuits">
+          <template v-for="(tuitResp, index) in tuitsResp">
           <v-card dark tile flat class="cuadroTuit">
             <v-list-tile-content>
-                <v-list-tile-title v-html = "tuit.user.name" class="textoDos"><strong></strong></v-list-tile-title>
-                <v-card-text v-html = "tuit.text" class="textoDos"></v-card-text>
+                <v-list-tile-title v-html = "tuitResp.user.name" class="textoDos"><strong></strong></v-list-tile-title>
+                <v-card-text v-html = "tuitResp.text" class="textoDos"></v-card-text>
                 <v-layout row wrap>
                   <v-flex md2 order-md1 class="rtext">
-                      <v-card-text v-html = "tuit.retweet_count" class="textoTres">
+                      <v-card-text v-html = "tuitResp.retweet_count" class="textoTres">
                       </v-card-text>
                   </v-flex>
                   <v-flex md2 order-md2 class="rt">
                       <v-icon color="green">cached</v-icon>
                   </v-flex>
                   <v-flex md2 order-md3 class="ltext">
-                    <v-card-text v-html = "tuit.favorite_count" class="textoCuatro">
+                    <v-card-text v-html = "tuitResp.favorite_count" class="textoCuatro">
                     </v-card-text>
                   </v-flex>
                   <v-flex md2 order-md4 class="like">
@@ -68,7 +68,7 @@
                   </v-flex>
                   <v-flex md2 order-md4 class="like">
                     <v-tooltip bottom>
-                      <v-btn  flat icon color="orange" slot="activator" href="#/tuitsMeadeResp">
+                      <v-btn  flat icon color="orange" slot="activator">
                          <v-icon>trending_up</v-icon>
                       </v-btn>
                       <span>Análisis</span>
@@ -113,12 +113,12 @@ export default {
   LineExample
   },
    data: () => ({
-     tuit: {
+     tuitResp: {
        _Id: '',
        name: '',
        text: ''
      },
-     tuits: [{
+     tuitsResp: [{
      }],
      show: false,
 
@@ -127,7 +127,7 @@ export default {
   //this.items = //get items from api
   let candId = 'JoseAMeadeK'
   console.log(candId)
-  this.$store.dispatch('getAllTuits', candId).then(tuits => this.tuits = tuits)
+  this.$store.dispatch('getAllTuitsResp', candId).then(tuitsResp => this.tuitsResp = tuitsResp)
 }
 }
 </script>
