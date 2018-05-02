@@ -7,6 +7,8 @@ import TuitsAmlo from '@/components/TuitsAmlo/TuitsAmlo'
 import TuitsAnaya from '@/components/TuitsAnaya/TuitsAnaya'
 import TuitsBronco from '@/components/TuitsBronco/TuitsBronco'
 import TuitsMeade from '@/components/TuitsMeade/TuitsMeade'
+import TuitsAmloResp from '@/components/TuitsAmloResp/TuitsAmloResp'
+
 
 
 
@@ -43,6 +45,11 @@ export default new Router({
       path: '/tuitsMeade',
       name: 'TuitsMeade',
       component: TuitsMeade
+    },
+    {
+      path: '/tuitsAmloResp',
+      name: 'TuitsAmloResp',
+      component: TuitsAmloResp
     }
   ]
 })
