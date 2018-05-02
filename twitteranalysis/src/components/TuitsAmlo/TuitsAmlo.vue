@@ -41,7 +41,8 @@
           </v-list-tile>
           </v-card> -->
       </v-flex>
-
+      
+      <!-- Despliegue de tuits -->
       <v-flex md6 order-lg2>
         <v-list two-line>
           <template v-for="(tuit, index) in tuits">

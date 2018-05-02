@@ -42,6 +42,7 @@
           </v-card> -->
       </v-flex>
 
+<!-- Despliegue de tuits -->
       <v-flex md6 order-lg2>
         <v-list two-line>
           <template v-for="(tuit, index) in tuits">
@@ -49,14 +50,21 @@
             <v-list-tile-content>
                 <v-list-tile-title v-html = "tuit.user.name" class="textoDos"><strong></strong></v-list-tile-title>
                 <v-card-text v-html = "tuit.text" class="textoDos"></v-card-text>
-                <v-layout row>
-                  <v-flex xs6 order-lg1>
-                    <v-icon color="green">cached</v-icon>
-                    <v-card-text v-html = "tuit.retweet_count" class="textoTres">
+
+                <v-layout row wrap>
+                  <v-flex md2 order-md1 class="rtext">
+                      <v-card-text v-html = "tuit.retweet_count" class="textoTres">
+                      </v-card-text>
+                  </v-flex>
+                  <v-flex md2 order-md3 class="ltext">
+                    <v-card-text v-html = "tuit.favorite_count" class="textoCuatro">
                     </v-card-text>
                   </v-flex>
-                  <v-flex xs6 order-lg2>
-                    <v-card-text v-html = "tuit.favorite_count" class="textoCuatro"></v-card-text>
+                  <v-flex md2 order-md2 class="rt">
+                      <v-icon color="green">cached</v-icon>
+                  </v-flex>
+                  <v-flex md2 order-md4 class="like">
+                    <v-icon color="red">favorite_border</v-icon>
                   </v-flex>
                 </v-layout>
             </v-list-tile-content>
@@ -149,13 +157,18 @@ export default {
 
 .textoTres{
   color: #0097A7;
-  padding-left: 80px;
+  padding-left: 100px;
+  width: 5px !important;
+  padding-top: 1px;
 
 }
 
 .textoCuatro{
   color: #0097A7;
   padding-left: 100px;
+  width: 1px !important;
+  padding-top: 1px;
+
 }
 
 .cuadroDos{
@@ -166,6 +179,25 @@ export default {
   left: 1px;
 }
 
+.rt{
+  width: 1px !important;
+  right: 50px !important;
+}
+
+.like{
+  width: 1px !important;
+}
+
+.rtext{
+  width: 1px !important;
+  padding-left: 15px;
+}
+
+.ltext{
+  width: 500px !important;
+  padding-left: 15px;
+
+}
 
 
 </style>
