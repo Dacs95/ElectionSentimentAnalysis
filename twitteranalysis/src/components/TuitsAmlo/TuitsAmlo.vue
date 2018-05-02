@@ -58,6 +58,8 @@
 
       <!-- Despliegue de tuits -->
       <v-flex md6 order-lg2>
+        <v-layout row>
+          <v-flex  offset-sm2 xs12 sm12>
         <v-list two-line>
           <template v-for="(tuit, index) in tuits">
           <v-card dark tile flat class="cuadroTuit">
@@ -70,12 +72,12 @@
                       <v-card-text v-html = "tuit.retweet_count" class="textoTres">
                       </v-card-text>
                   </v-flex>
+                  <v-flex md2 order-md2 class="rt">
+                      <v-icon color="green">cached</v-icon>
+                  </v-flex>
                   <v-flex md2 order-md3 class="ltext">
                     <v-card-text v-html = "tuit.favorite_count" class="textoCuatro">
                     </v-card-text>
-                  </v-flex>
-                  <v-flex md2 order-md2 class="rt">
-                      <v-icon color="green">cached</v-icon>
                   </v-flex>
                   <v-flex md2 order-md4 class="like">
                     <v-icon color="red">favorite_border</v-icon>
@@ -86,6 +88,8 @@
           </v-card>
       </template>
     </v-list>
+  </v-flex>
+  </v-layout>
         </v-flex>
     </v-layout>
   </v-container>
@@ -138,7 +142,7 @@ export default {
   padding-bottom: 10px;
   padding-left: 20px;
   border-radius: 5px 5px 5px 5px;
-  width: 500px;
+  width: 430px;
   left: 130px;
   background: none !important;
   border-bottom: 2px solid;
