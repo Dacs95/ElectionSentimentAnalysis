@@ -50,6 +50,26 @@ router.get('/api/toptweets/:id', function(req,res){
     });
 });
 
+router.get('/api/topuserstweets/:id', function(req, res) {
+    console.log(req.params.id);
+    name = req.params.id;
+    collectionName = "topuserstweets" + name;
+    var tweets =[];
+    MongoClient.connect(uri, function(err, client) {
+        const collection = client.db("sa-data").collection(collectionName);
+        // perform actions on the collection object
+        collection.find({}).toArray(function(err, docs){
+            assert.equal(null, err);
+            assert.ok(docs != null);
+            tweets = docs
+            console.log("Responding with top tweets of " + collectionName);
+            client.close();
+
+            res.status(200).json(tweets);
+        });
+    });
+});
+
 router.get('/api/analysis/:id', function(req, res) {
 
 });
