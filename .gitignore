@@ -1,1 +1,5 @@
 /node_modules
+.vscode/*
+node_modules/
+*.pyc
+TwitterAnalysis-d91324f60ab5.json
